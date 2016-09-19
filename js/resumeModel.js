@@ -4,6 +4,8 @@ var RESUME = RESUME || {};
 RESUME.model = RESUME.model || {};
 
 // define prototypes for these objects
+// TODO: prototypes?
+// TODO: inheritance?
 RESUME.model.Bio = function (name) {
     this.name = name;
     this.role = "";
@@ -52,7 +54,7 @@ RESUME.model.Projects = function () {
     this.projects = [];
 };
 RESUME.model.Projects.prototype.display = function () {};
-RESUME.model.ProjectItem = function () {
+RESUME.model.Project = function () {
     this.title = "";
     this.dates = "";
     this.description = "";
