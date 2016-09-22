@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync');
 var cssbeautify = require('gulp-cssbeautify');
+var jsbeautify = require('gulp-jsbeautify');
 
 gulp.task('sass', function () {
   return gulp.src('./sass/**/*.scss')
@@ -16,7 +17,13 @@ gulp.task('cssbeautify', function() {
     .pipe(gulp.dest('./css/'));
 });
 
-gulp.task('build', ['sass', 'cssbeautify']);
+gulp.task('jsbeautify', function() {
+  return gulp.src(['./js/*.js'])
+    .pipe(jsbeautify())
+    .pipe(gulp.dest('./js/'));
+});
+
+gulp.task('build', ['sass', 'cssbeautify', 'jsbeautify']);
 
 gulp.task('serve', ['build'], function() {
   browserSync.init({
@@ -25,5 +32,5 @@ gulp.task('serve', ['build'], function() {
 
   gulp.watch('./sass/**/*.scss', ['sass']);
   gulp.watch('./*.html').on('change', browserSync.reload);
-  gulp.watch('./js/**/*.js').on('change', browserSync.reload);
+  gulp.watch(['./js/*.js', './js/**/*.js']).on('change', browserSync.reload);
 });
