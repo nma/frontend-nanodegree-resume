@@ -82,7 +82,7 @@ RESUME.buildProjects = function() {
     return projects;
 };
 
-RESUME.buildMap = function() {
+RESUME.displayMap = function() {
     $('#mapDiv').append(googleMap);
 };
 
@@ -90,7 +90,7 @@ var bio = RESUME.buildBio();
 var education = RESUME.buildEducation();
 var projects = RESUME.buildProjects();
 var work = RESUME.buildWork();
-RESUME.buildMap();
+RESUME.displayMap();
 
 bio.display();
 work.display();

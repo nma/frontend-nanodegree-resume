@@ -18,6 +18,9 @@ h6 {
     overflow: auto;
 }
 
+#main {
+}
+
 .education-entry,
 .work-entry,
 .project-entry {
@@ -116,7 +119,7 @@ a {
 
 .gray {
     background-color: #f3f3f3;
-    padding-bottom: 10px;
+    padding-bottom: 2%;
     clear: both;
 }
 
@@ -209,7 +212,7 @@ span {
 #mapDiv {
     height: 400px;
     width: 100%;
-    padding-bottom: 5%;
+    padding-bottom: 8%;
 }
 
 @media only screen and (min-width: 750px) {
