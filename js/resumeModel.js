@@ -43,30 +43,30 @@ RESUME.model.Education.prototype.display = function() {
                 $('#education').append(HTMLschoolStart);
 
                 $('.education-entry:last').append(
-                    HTMLschoolName.replace('%data%', school.name),
-                    HTMLschoolDegree.replace('%data%', school.degree),
-                    HTMLschoolDates.replace('%data%', school.dates)
+                    HTMLschoolName.replace('%data%', school.name) + HTMLschoolDegree.replace('%data%', school.degree),
+                    HTMLschoolDates.replace('%data%', school.dates),
+                    HTMLschoolLocation.replace('%data%', school.location)
                 );
 
-                for (var j = 0; i < school.majors; j++) {
-                    $('.education-entry:last').append('%data%', school.majors[j]);
+                for (var j = 0; j < school.majors.length; j++) {
+                    console.log(school.majors[j]);
+                    $('.education-entry:last').append(HTMLschoolMajor.replace('%data%', school.majors[j]));
                 }
             }
         }
     }
 
-    if (this.onlineCourses) {
-        if (this.onlineCourses.length > 0) {
-            $('#education').append(HTMLonlineClasses);
-            for (var k = 0; k < this.onlineCourses.length; k++) {
-                var onlineCourse = this.onlineCourses[k];
-                if (onlineCourse) {
-                    $('#education').append(HTMLschoolStart);
-                    $('.education-entry:last').append(
-                        HTMLschoolName.replace('%data%', onlineCourse.name),
-                        HTMLschoolDates.replace('%data%', onlineCourse.dates)
-                    );
-                }
+    if (this.onlineCourses && this.onlineCourses.length > 0) {
+        $('#education').append(HTMLonlineClasses);
+        for (var k = 0; k < this.onlineCourses.length; k++) {
+            var onlineCourse = this.onlineCourses[k];
+            if (onlineCourse) {
+                $('#education').append(HTMLschoolStart);
+                $('.education-entry:last').append(
+                    HTMLschoolName.replace('%data%', onlineCourse.title) + HTMLonlineSchool.replace('%data%', onlineCourse.school),
+                    HTMLschoolDates.replace('%data%', onlineCourse.dates),
+                    HTMLonlineURL.replace('%data%', onlineCourse.url)
+                );
             }
         }
     }
@@ -96,8 +96,7 @@ RESUME.model.Work.prototype.display = function() {
             if (job) {
                 $('#workExperience').append(HTMLworkStart);
                 $('.work-entry:last').append(
-                    HTMLworkEmployer.replace('%data%', job.employer),
-                    HTMLworkTitle.replace('%data%', job.title),
+                    HTMLworkEmployer.replace('%data%', job.employer) + HTMLworkTitle.replace('%data%', job.title),
                     HTMLworkDates.replace('%data%', job.dates),
                     HTMLworkLocation.replace('%data%', job.location),
                     HTMLworkDescription.replace('%data%', job.description)
@@ -105,19 +104,6 @@ RESUME.model.Work.prototype.display = function() {
             }
         }
     }
-};
-RESUME.model.Work.prototype.getWorkLocations = function() {
-    var locations = [];
-    if (work && work.jobs) {
-        for (var i = 0; i < work.jobs.length; i++) {
-            var job = work.jobs[i];
-            if (job && job.location) {
-                locations.push(job.location);
-            }
-        }
-    }
-
-    return locations;
 };
 RESUME.model.Job = function() {
     this.employer = "";

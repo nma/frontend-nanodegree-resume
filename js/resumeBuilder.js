@@ -32,7 +32,7 @@ RESUME.buildEducation = function() {
     school.url = 'https://uwaterloo.ca';
 
     var onlineCourse = new RESUME.model.OnlineCourse();
-    onlineCourse.name = 'FrontEnd NanoDegree';
+    onlineCourse.title = 'FrontEnd NanoDegree';
     onlineCourse.school = 'Udacity';
     onlineCourse.dates = '2016 - present';
     onlineCourse.url = 'https://udacity.com';
@@ -73,7 +73,7 @@ RESUME.buildProjects = function() {
     project.title = 'Hacker Rank Test Case';
     project.dates = '2015 - 2016';
     project.description = 'Create a Docker Test Case Runner for Hacker Rank.';
-    project.images = [];
+    project.images = ["images/197x148.gif", "images/197x148.gif"];
 
     projects.projects = [
         project
