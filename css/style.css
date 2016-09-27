@@ -192,3 +192,21 @@ lock;
         display: block;
     }
 }
+
+lock;
+    height: 100%;
+    margin: 0 5%;
+}
+
+#mapDiv {
+height: 400px;
+width: 100%;
+padding-bottom: 8%;
+}
+
+@media only screen and (min-width: 750px) {
+#skills-h3,
+  .biopic {
+    display: block;
+}
+}

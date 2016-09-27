@@ -43,7 +43,7 @@ RESUME.model.Education.prototype.display = function() {
                 $('#education').append(HTMLschoolStart);
 
                 $('.education-entry:last').append(
-                    HTMLschoolName.replace('%data%', school.name) + HTMLschoolDegree.replace('%data%', school.degree),
+                    HTMLschoolName.replace('%data%', school.name).replace('#', school.url) + HTMLschoolDegree.replace('%data%', school.degree),
                     HTMLschoolDates.replace('%data%', school.dates),
                     HTMLschoolLocation.replace('%data%', school.location)
                 );
@@ -63,9 +63,9 @@ RESUME.model.Education.prototype.display = function() {
             if (onlineCourse) {
                 $('#education').append(HTMLschoolStart);
                 $('.education-entry:last').append(
-                    HTMLschoolName.replace('%data%', onlineCourse.title) + HTMLonlineSchool.replace('%data%', onlineCourse.school),
-                    HTMLschoolDates.replace('%data%', onlineCourse.dates),
-                    HTMLonlineURL.replace('%data%', onlineCourse.url)
+                    HTMLonlineTitle.replace('%data%', onlineCourse.title).replace('#', onlineCourse.url) + HTMLonlineSchool.replace('%data%', onlineCourse.school),
+                    HTMLonlineDates.replace('%data%', onlineCourse.dates),
+                    HTMLonlineURL.replace('%data%', onlineCourse.url).replace('#', onlineCourse.url)
                 );
             }
         }
